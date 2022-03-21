@@ -1,7 +1,9 @@
-Workout(1){
-incline barbell bench press 3 12 90;
-flat dumbbell bench press 3 12 90;
-cable crossover 3 12 90;
-seated lateral raise 3 12 90;
-single arm cable lateral raise 3 12 90;
+Program("Muscle Gain") {
+    Workout("Shoulder") {
+        Exercise("incline barbell bench press", 3, 12, 90);
+        Exercise("flat dumbbell bench press", 3, 12, 90);
+        Exercise("cable crossover", 3, 12, 90);
+        Exercise("seated lateral raise", 3, 12, 90);
+        Exercise("single arm cable lateral raise", 3, 12, 90);
+    }
 }

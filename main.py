@@ -1,16 +1,15 @@
-# This is a sample Python script.
+import sys
+from Code.Lexer import Lexer
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+file_name = "Resources/Example.txt"
 
+try:
+    with open(file_name, 'r') as file:
+        file_data = file.readlines()
+except FileNotFoundError:
+    print('Error: test file {} does not exist'.format(file_name))
+    sys.exit()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+lexer = Lexer()
+lexed = lexer.lex(file_data)
+print(lexed)

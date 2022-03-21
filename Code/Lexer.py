@@ -1,24 +1,24 @@
-
 import re
 import sys
 
-"""regexExpressions = [
+regexExpressions = [
     # Comments and whitespaces
     (r'\/\/[\s\S]*\n', 'COMMENT'),
     (r'[ \n\t]+', None),
 
     # Special characters
     (r'\;', 'TERMINATOR'),
-    (r'\=', 'ASSIGN'),
-    (r'\+', 'ADDITION'),
-    (r'\-', 'SUBTRACTION'),
-    (r'\*', 'MULTIPLICATION'),
-    (r'\/', 'DIVISION'),
+    (r'\"', 'QUOTE'),
+    (r'\(', 'LPARENTHESES'),
+    (r'\)', 'RPARENTHESES'),
+    (r'\{', 'LBRACES'),
+    (r'\}', 'RBRACES'),
+    (r'\,', 'COMMA'),
 
     # Identifiers & Integers
-    (r'[a-zA-Z]\w*', 'VARIABLE'),
-    (r'\d+',         'NUMBER'),
-]"""
+    (r'[a-zA-Z]\w*', 'WORD'),
+    (r'\d+', 'NUMBER'),
+]
 
 
 class Token:
@@ -32,14 +32,14 @@ class Token:
     position: Tuple(Int,Int)
         Tuple to point out the token's in the input file (line number, position)
     """
-    
+
     def __init__(self, tag, value, position):
-        self.tag      = tag
-        self.value    = value
+        self.tag = tag
+        self.value = value
         self.position = position
 
     def __repr__(self):
-        return self.tag
+        return self.value
 
 
 class Lexer:
