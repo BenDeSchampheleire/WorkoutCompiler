@@ -16,6 +16,9 @@ regexExpressions = [
     (r'\,', 'COMMA'),
 
     # Identifiers & Integers
+    (r'Program\b', 'PROGRAM'),
+    (r'Workout\b*', 'WORKOUT'),
+    (r'Exercise\b*', 'EXERCISE'),
     (r'[a-zA-Z]\w*', 'WORD'),
     (r'\d+', 'NUMBER'),
 ]
@@ -64,8 +67,8 @@ class Lexer:
             # Crawl through the line
             while position < len(line):
                 match = None
-                for lexemRegex in regexExpressions:
-                    pattern, tag = lexemRegex
+                for tokenRegex in regexExpressions:
+                    pattern, tag = tokenRegex
                     regex = re.compile(pattern)
                     match = regex.match(line, position)
                     if match:
