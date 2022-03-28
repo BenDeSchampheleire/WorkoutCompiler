@@ -1,32 +1,28 @@
 class Program:
 
     def __init__(self):
-        self.name = None
+        self.name = ""
         self.workouts = []
 
 
 class Workout:
 
     def __init__(self):
-        self.name = None
+        self.name = ""
         self.exercises = []
 
 
 class Exercise:
 
     def __init__(self):
-        self.name = None
+        self.name = ""
+        self.sets = None
+        self.reps = None
+        self.rest = None
 
 
 class Name:
 
     def __init__(self):
-        self.string = None
-
-
-class Integer:
-
-    def __init__(self):
-        self.before_comma = None
-        self.after_comma = None
+        self.string = ""
 

@@ -1,6 +1,6 @@
 import sys
 
-from AST import *
+from Code.AST import *
 
 
 class Parser:
@@ -73,17 +73,12 @@ class Parser:
         self.expect("RPARENTHESES")
         self.expect("LBRACES")
 
-        while len(self.tokens) > 0:
+        while len(self.tokens) > 0 and not self.peek().tag == "RBRACES":
             workout = self.parse_workout()
             program.workouts.append(workout)
 
+        self.expect("RBRACES")
         return program
-
-    def parse_workout(self):
-        """ Parses a Workout consisting of one or multiple Exercises """
-
-        workout = Workout()
-
 
     def parse_name(self):
         """ Parse a Name consisting of one or multiple words """
@@ -91,8 +86,55 @@ class Parser:
         name = Name()
 
         while self.peek().tag == "WORD":
-            name.string += self.expect("WORD")
+            token = self.expect("WORD")
+            name.string += token.value
             name.string += " "
 
+        name.string = name.string[:-1]
+        return name.string
 
-        
+    def parse_workout(self):
+        """ Parses a Workout consisting of one or multiple Exercises """
+
+        workout = Workout()
+        self.expect("WORKOUT")
+        self.expect("LPARENTHESES")
+        self.expect("QUOTE")
+
+        name = self.parse_name()
+        workout.name = name
+
+        self.expect("QUOTE")
+        self.expect("RPARENTHESES")
+        self.expect("LBRACES")
+
+        while len(self.tokens) > 0 and not self.peek().tag == "RBRACES":
+            exercise = self.parse_exercise()
+            workout.exercises.append(exercise)
+
+        self.expect("RBRACES")
+        return workout
+
+    def parse_exercise(self):
+        """ Parses an Exercise """
+
+        exercise = Exercise()
+        self.expect("EXERCISE")
+        self.expect("LPARENTHESES")
+        self.expect("QUOTE")
+
+        name = self.parse_name()
+        exercise.name = name
+
+        self.expect("QUOTE")
+        self.expect("COMMA")
+        exercise.sets = self.expect("NUMBER")
+        self.expect("COMMA")
+        exercise.reps = self.expect("NUMBER")
+        self.expect("COMMA")
+        exercise.rest = self.expect("NUMBER")
+
+        self.expect("RPARENTHESES")
+        self.expect("TERMINATOR")
+
+        return exercise

@@ -17,8 +17,8 @@ regexExpressions = [
 
     # Identifiers & Integers
     (r'Program\b', 'PROGRAM'),
-    (r'Workout\b*', 'WORKOUT'),
-    (r'Exercise\b*', 'EXERCISE'),
+    (r'Workout\b', 'WORKOUT'),
+    (r'Exercise\b', 'EXERCISE'),
     (r'[a-zA-Z]\w*', 'WORD'),
     (r'\d+', 'NUMBER'),
 ]
