@@ -38,7 +38,7 @@ class Parser:
     def accept(self):
         """ Pops the token out of the tokens list and log its tag/value combination """
 
-        # self.peek()
+        self.peek()
         return self.tokens.pop(0)
 
     def remove_comments(self):
@@ -91,7 +91,7 @@ class Parser:
             name.string += " "
 
         name.string = name.string[:-1]
-        return name.string
+        return name
 
     def parse_workout(self):
         """ Parses a Workout consisting of one or multiple Exercises """

@@ -1,8 +1,10 @@
 import sys
 from Code.Lexer import Lexer
 from Code.Parser import Parser
+from Code.Visitor import Visitor
 
 from pprint import pprint
+
 
 file_name = "Resources/Example.txt"
 
@@ -15,12 +17,16 @@ except FileNotFoundError:
 
 lexer = Lexer()
 lexed = lexer.lex(file_data)
+print("\n")
 print(lexed)
-print("Lexer: analysis successful!")
+print("\nLexer: analysis successful!")
 
 parser = Parser()
 ast = parser.parse(lexed)
-print("Parser: analysis successful!")
+print("\nParser: analysis successful!\n")
 pprint(vars(ast))
 pprint(vars(ast.workouts[0]))
 pprint(vars(ast.workouts[0].exercises[0]))
+
+visitor = Visitor()
+visitor.visit(ast)
