@@ -1,6 +1,7 @@
 import sys
 from Code.Lexer import Lexer
 from Code.Parser import Parser
+from Code.PrettyPrinter import PrettyPrinter
 from Code.Visitor import Visitor
 
 from pprint import pprint
@@ -23,10 +24,11 @@ print("\nLexer: analysis successful!")
 
 parser = Parser()
 ast = parser.parse(lexed)
-print("\nParser: analysis successful!\n")
-pprint(vars(ast))
-pprint(vars(ast.workouts[0]))
-pprint(vars(ast.workouts[0].exercises[0]))
+print(vars(ast))
+print("\nParser: analysis successful!")
 
 visitor = Visitor()
 visitor.visit(ast)
+
+pp = PrettyPrinter()
+pp.prettyPrint(ast)

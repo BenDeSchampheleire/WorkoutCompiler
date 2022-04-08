@@ -128,11 +128,11 @@ class Parser:
 
         self.expect("QUOTE")
         self.expect("COMMA")
-        exercise.sets = self.expect("NUMBER")
+        exercise.sets = int( self.expect("NUMBER").value )
         self.expect("COMMA")
-        exercise.reps = self.expect("NUMBER")
+        exercise.reps = int( self.expect("NUMBER").value )
         self.expect("COMMA")
-        exercise.rest = self.expect("NUMBER")
+        exercise.rest = int( self.expect("NUMBER").value )
 
         self.expect("RPARENTHESES")
         self.expect("TERMINATOR")
