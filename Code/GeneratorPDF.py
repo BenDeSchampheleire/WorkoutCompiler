@@ -5,6 +5,7 @@ from Code.Visitor import Visitor
 class GeneratorPDF(Visitor):
     pdf = PDF(orientation='P', unit='mm', format='A4')
     exercise_counter = 0
+    workout_counter = 0
 
     def generatePDF(self, program, name):
         program.accept(self)
@@ -20,7 +21,11 @@ class GeneratorPDF(Visitor):
         GeneratorPDF.pdf.title(program.name.string)
         program.name.accept(self)
         for workout in program.workouts:
+            if GeneratorPDF.workout_counter != 0:
+                GeneratorPDF.pdf.add_page()
+                GeneratorPDF.pdf.frame()
             workout.accept(self)
+            GeneratorPDF.workout_counter += 1
         return program
 
     def visitWorkout(self, workout):
@@ -33,8 +38,9 @@ class GeneratorPDF(Visitor):
         return workout
 
     def visitExercise(self, exercise):
-        GeneratorPDF.pdf.insert_text(GeneratorPDF.exercise_counter, exercise.name.string)
-        GeneratorPDF.pdf.insert_image(GeneratorPDF.exercise_counter, "Resources/Logo_SecVeh.png")
+        GeneratorPDF.pdf.insert_exercise_name(GeneratorPDF.exercise_counter, exercise.name.string)
+        GeneratorPDF.pdf.insert_exercise_image(GeneratorPDF.exercise_counter, "Resources/Logo_SecVeh.png")
+        GeneratorPDF.pdf.insert_exercise_specs(GeneratorPDF.exercise_counter, exercise)
         exercise.name.accept(self)
         return exercise
 

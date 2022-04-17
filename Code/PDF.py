@@ -19,22 +19,32 @@ class PDF(FPDF):
 
     def subtitle(self, subtitle):
         self.set_xy(0.0, 30.0)
-        self.set_font('Arial', 'BU', 36)
+        self.set_font('Arial', 'BU', 28)
         self.set_text_color(220, 50, 50)
         self.cell(w=PDF.width, h=15.0, align='C', txt=subtitle, border=0)
 
-    def insert_text(self, counter, text):
+    def insert_exercise_name(self, counter, text):
         q, r = divmod(counter, 4)
         x = 20.0 + 45.0 * r
         y = 50.0 + 100.0 * q
         self.set_xy(x, y)
         self.set_text_color(0, 0, 0)
         self.set_font('Arial', '', 12)
-        self.multi_cell(30, 5, text, align='C')
+        self.multi_cell(30.0, 5.0, text, align='C')
 
-    def insert_image(self, counter, image):
+    def insert_exercise_image(self, counter, image):
         q, r = divmod(counter, 4)
         x = 20.0 + 45.0 * r
-        y = 75.0 + 100.0 * q
+        y = 60.0 + 100.0 * q
         self.set_xy(x, y)
-        self.image(image, link='', type='', w=1586/80, h=1920/80)
+        self.image(image, link='', type='', w=30.0, h=60.0)
+
+    def insert_exercise_specs(self, counter, exercise):
+        q, r = divmod(counter, 4)
+        x = 20.0 + 45.0 * r
+        y = 125.0 + 100.0 * q
+        self.set_xy(x, y)
+        self.set_text_color(0, 0, 0)
+        self.set_font('Arial', '', 12)
+        text = "Reps: %d \n Sets: %d \n Rest: %d" %(exercise.reps, exercise.sets, exercise.rest)
+        self.multi_cell(30.0, 5.0, text, align='C')

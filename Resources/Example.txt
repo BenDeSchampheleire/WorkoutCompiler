@@ -6,4 +6,7 @@ Program("Muscle Gain") {
         Exercise("seated lateral raise", 3, 12, 90);
         Exercise("single arm cable lateral raise", 3, 12, 90);
     }
+    Workout("Chest") {
+        Exercise("push ups", 3, 12, 90);
+    }
 }
