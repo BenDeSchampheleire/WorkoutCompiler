@@ -1,10 +1,11 @@
 import sys
+
+from Code.GeneratorPDF import GeneratorPDF
 from Code.Lexer import Lexer
+from Code.PDF import PDF
 from Code.Parser import Parser
 from Code.PrettyPrinter import PrettyPrinter
 from Code.Visitor import Visitor
-
-from pprint import pprint
 
 
 file_name = "Resources/Example.txt"
@@ -32,3 +33,7 @@ visitor.visit(ast)
 
 pp = PrettyPrinter()
 pp.prettyPrint(ast)
+
+generator = GeneratorPDF()
+generator.generatePDF(ast, "test")
+
