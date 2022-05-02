@@ -2,7 +2,6 @@ class Visitor:
 
     def visit(self, program):
         program.accept(self)
-        print("\nVisitor: analysis successful!")
         return program
 
     def visitProgram(self, program):

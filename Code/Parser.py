@@ -85,8 +85,11 @@ class Parser:
 
         name = Name()
 
-        while self.peek().tag == "WORD":
-            token = self.expect("WORD")
+        while self.peek().tag == "WORD" or self.peek().tag == "MINUS":
+            if self.peek().tag == "WORD":
+                token = self.expect("WORD")
+            elif self.peek().tag == "MINUS":
+                token = self.expect("MINUS")
             name.string += token.value
             name.string += " "
 

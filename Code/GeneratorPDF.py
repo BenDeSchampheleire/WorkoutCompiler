@@ -29,7 +29,7 @@ class GeneratorPDF(Visitor):
         return program
 
     def visitWorkout(self, workout):
-        GeneratorPDF.pdf.subtitle(workout.name.string)
+        GeneratorPDF.pdf.subtitle("Workout " + str(GeneratorPDF.workout_counter + 1) + ": " + workout.name.string)
         workout.name.accept(self)
         for exercise in workout.exercises:
             exercise.accept(self)
@@ -39,7 +39,9 @@ class GeneratorPDF(Visitor):
 
     def visitExercise(self, exercise):
         GeneratorPDF.pdf.insert_exercise_name(GeneratorPDF.exercise_counter, exercise.name.string)
-        GeneratorPDF.pdf.insert_exercise_image(GeneratorPDF.exercise_counter, "Resources/Logo_SecVeh.png")
+        image_attributes = GeneratorPDF.pdf.search_exercise_image(exercise.name.string)  # returns False when image is not found
+        image_path = GeneratorPDF.pdf.get_image(image_attributes)
+        GeneratorPDF.pdf.insert_exercise_image(GeneratorPDF.exercise_counter, image_path)
         GeneratorPDF.pdf.insert_exercise_specs(GeneratorPDF.exercise_counter, exercise)
         exercise.name.accept(self)
         return exercise

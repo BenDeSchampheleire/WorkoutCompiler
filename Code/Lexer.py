@@ -14,6 +14,7 @@ regexExpressions = [
     (r'\{', 'LBRACES'),
     (r'\}', 'RBRACES'),
     (r'\,', 'COMMA'),
+    (r'\-', 'MINUS'),
 
     # Identifiers & Integers
     (r'Program\b', 'PROGRAM'),
@@ -82,7 +83,7 @@ class Lexer:
                         break
                 # No match detected --> Wrong syntax in the input file
                 if not match:
-                    print("No match detected on line and position:")
+                    print("No match detected on line and position: ({},{})".format(lineNumber, position+1))
                     print(line[position:])
                     sys.exit(1)
 
