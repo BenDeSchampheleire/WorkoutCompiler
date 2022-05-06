@@ -2,6 +2,7 @@ from Code.Visitor import Visitor
 
 
 class PrettyPrinter(Visitor):
+    """Type of Visitor that prints the input text in an orderly fashion"""
 
     def prettyPrint(self, program):
         print("\n ---------------------------------------------------------- \n")

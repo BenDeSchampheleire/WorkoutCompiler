@@ -1,4 +1,5 @@
 class Node:
+    """Represents a node in the AST. Class to be inherited from. Allows metaprogramming of the method accept()"""
 
     def accept(self, visitor):
         class_name = self.__class__.__name__

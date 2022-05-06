@@ -8,6 +8,7 @@ from Code.Visitor import Visitor
 
 
 class Compiler:
+    """Compiler composed of a Lexer, a Parser, a (dummy) Visitor, a PrettyPrinter and a PDF Generator"""
 
     def __init__(self):
         self.lexer = Lexer()
@@ -17,6 +18,7 @@ class Compiler:
         self.generator = GeneratorPDF()
 
     def compile(self, file_name, output_name):
+        """Search for a certain file name and compile it. **Note**: file should only contain one single program."""
 
         try:
             with open(file_name, 'r') as file:

@@ -1,4 +1,5 @@
 class Visitor:
+    """General Visitor class to be inherited from. Acts as a dummy Visitor by printing which elements are visited"""
 
     def visit(self, program):
         program.accept(self)
