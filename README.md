@@ -19,7 +19,7 @@ Program("Muscle Gain") {
 }
 ```
 
-To compile this example, run the file `main.py`.
+To compile this example, run the file `main.py`. The output is stored in `WorkoutProgram.pdf`.
 
 **Note**: the Compiler only allows to compile one program at a time
 
