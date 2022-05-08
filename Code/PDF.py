@@ -74,6 +74,7 @@ class PDF(FPDF):
         """Search for an image in the Database. Downloads the image if no match was found.
 
         :param image_attributes: Name and image of the first exercise that is returned by search_exercise_image"""
+
         if image_attributes != False:
             image_name = image_attributes[0]
             image_URL = image_attributes[1]

@@ -3,7 +3,7 @@ from Code.Visitor import Visitor
 
 
 class GeneratorPDF(Visitor):
-    """Type of Visitor that creates a pdf file of the program based on the PyPDF class."""
+    """Type of Visitor that creates a pdf file of the program based on the PyPDF class. Contains the traditional methods of the Visitor Pattern: visit...(self, ...)"""
 
     pdf = PDF(orientation='P', unit='mm', format='A4')
     exercise_counter = 0

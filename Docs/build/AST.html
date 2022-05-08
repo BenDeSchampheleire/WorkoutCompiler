@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>AST module &#8212; Workout Compiler  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Workout Compiler  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">AST module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-AST">
+<span id="ast-module"></span><h1>AST module<a class="headerlink" href="#module-AST" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="AST.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AST.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><a class="headerlink" href="#AST.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a node in the AST. Class to be inherited from. Allows metaprogramming of the method accept()</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AST.Node.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visitor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AST.Node.accept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accept the visitor using a metaprogramming approach</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AST.Program">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AST.</span></span><span class="sig-name descname"><span class="pre">Program</span></span><a class="headerlink" href="#AST.Program" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#AST.Node" title="AST.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">AST.Node</span></code></a></p>
+<p>Program node, containing a Name node and several Workout nodes</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AST.Workout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AST.</span></span><span class="sig-name descname"><span class="pre">Workout</span></span><a class="headerlink" href="#AST.Workout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#AST.Node" title="AST.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">AST.Node</span></code></a></p>
+<p>Workout node, containing a Name node and several Exercise nodes</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AST.Exercise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AST.</span></span><span class="sig-name descname"><span class="pre">Exercise</span></span><a class="headerlink" href="#AST.Exercise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#AST.Node" title="AST.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">AST.Node</span></code></a></p>
+<p>Exercise node, containing a Name node and the specifications of the exercise: number of reps, sets and rest</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AST.Name">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AST.</span></span><span class="sig-name descname"><span class="pre">Name</span></span><a class="headerlink" href="#AST.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#AST.Node" title="AST.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">AST.Node</span></code></a></p>
+<p>Name node, contains a String with the name of a Program/Workout/Exercise</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/AST.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Workout Compiler  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">AST module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Ben De Schampheleire, Chris Arridi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>
