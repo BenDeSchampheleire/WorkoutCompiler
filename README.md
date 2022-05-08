@@ -48,4 +48,4 @@ This speeds up the compiler and makes it more proficient every time it is used.
 
 ## Documentation
 
-For more info on the different classes and methods, open the [documentation](./Docs/build/index.html).
+For more info on the different classes and methods, open the [documentation](https://htmlpreview.github.io/?https://github.com/BenDeSchampheleire/WorkoutCompiler/blob/main/Docs/build/index.html).
