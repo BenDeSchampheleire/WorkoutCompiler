@@ -33,7 +33,7 @@ class Token:
     value: String
         Value of the token
 
-    position: Tuple(Int,Int)
+    position: List[Int,Int]
         Tuple to point out the token's in the input file (line number, position)
     """
 
@@ -44,6 +44,11 @@ class Token:
 
     def __repr__(self):
         return self.value
+
+    def __eq__(self, other):
+        if isinstance(other, Token):
+            return self.tag == other.tag and self.value == other.value and self.position == other.position
+        return False
 
 
 class Lexer:
