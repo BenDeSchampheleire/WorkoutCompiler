@@ -78,7 +78,7 @@ class PDF(FPDF):
         if image_attributes != False:
             image_name = image_attributes[0]
             image_URL = image_attributes[1]
-            file = "Resources/Database/" + image_name.replace(" ", "_") + ".png"
+            file = "../Resources/Database/" + image_name.replace(" ", "_") + ".png"
             if os.path.exists(file):
                 return file
             else:

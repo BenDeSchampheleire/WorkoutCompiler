@@ -11,7 +11,7 @@ class GeneratorPDF(Visitor):
 
     def generatePDF(self, program, name):
         program.accept(self)
-        file_name = name + '.pdf'
+        file_name = "../" + name + '.pdf'
         GeneratorPDF.pdf.set_title("Workout Program")
         GeneratorPDF.pdf.set_author("Ben De Schampheleire")
         GeneratorPDF.pdf.output(file_name, 'F')
